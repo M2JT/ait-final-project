@@ -1,0 +1,34 @@
+<div class="formDiv">
+	<h1>Admin Login</h1>
+	<form method="POST" action="/admin">
+		<div>Username: <input type="text" name="adminName" value="" class="username"></div>
+		<div>Password: <input type="password" name="adminPassword" value="" class="password"></div>
+		<div><input type="submit" value="admin login" class="linkBtn"></div>
+	</form>
+</div>
+
+{{#if loginMissing}}
+	<script>
+		JSAlert.alert("<code>Missing credentials!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if loginError}}
+	<script>
+		JSAlert.alert("<code>Error occured during login!</code>", null, JSAlert.Icons.Failed);
+	</script>
+{{else if loginUserNotFound}}
+	<script>
+		JSAlert.alert("<code>Admin does not exist!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if loginCompareError}}
+	<script>
+		JSAlert.alert("<code>Error occured during login!</code>", null, JSAlert.Icons.Failed);
+	</script>
+{{else if loginWrongPassword}}
+	<script>
+		JSAlert.alert("<code>Password incorrect!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if loginUnknownError}}
+	<script>
+		JSAlert.alert("<code>Error occured during login!</code>", null, JSAlert.Icons.Failed);
+	</script>
+{{/if}}

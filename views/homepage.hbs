@@ -1,0 +1,51 @@
+{{#if adminExit}}
+  <script>
+    // a success msg will pop up to tell admin that they have successfully cleared
+    // the content of a chat room's msg
+    JSAlert.alert("<code>Admin logout successful!</code>", null, JSAlert.Icons.Success);
+  </script>
+{{else if registerSucc}}
+  <script>
+    JSAlert.alert("<code>Welcome, {{username}}!</code>", null, JSAlert.Icons.Success);
+  </script>
+{{else if loginSuccess}}
+  <script>
+    JSAlert.alert("<code>Welcome back, {{username}}!</code>", null, JSAlert.Icons.Success);
+  </script>
+{{else if alreadyLogin}}
+  <script>
+    JSAlert.alert("<code>Please logout before logging into other account!</code>", null, JSAlert.Icons.Warning);
+  </script>
+{{else if alreadyLogin2}}
+  <script>
+    JSAlert.alert("<code>Please logout before registering other account!</code>", null, JSAlert.Icons.Warning);
+  </script>
+{{else if alreadyLogin3}}
+  <script>
+    JSAlert.alert("<code>Please logout before logging in as an admin!</code>", null, JSAlert.Icons.Warning);
+  </script>
+{{else if userLogoutSucc}}
+  <script>
+    JSAlert.alert("<code>See you next time!</code>", null, JSAlert.Icons.Success);
+  </script>
+{{else if adminDenied}}
+  <script>
+    JSAlert.alert("<code>Access denied!</code>", null, JSAlert.Icons.Failed);
+  </script>
+{{/if}}
+
+{{#if username}}
+  <div id="usernameDiv">
+    Current logged in user: {{ username }}
+    <form method="POST" action="/" style="margin-top: 5px">
+      <input type="submit" name="userLogout" value="User Logout">
+    </form>
+  </div>
+{{else if adminName}}
+  <div id="usernameDiv">
+    Current logged in admin: {{ adminName }}
+    <form method="POST" action="/" style="margin-top: 5px">
+      <input type="submit" name="adminLogout" value="Admin Logout">
+    </form>
+  </div>
+{{/if}}

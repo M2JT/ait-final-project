@@ -1,0 +1,64 @@
+<h2 id="adminPanelH2">Admin Panel</h2>
+
+<div>
+  <div id="adminChatBoxDiv1">
+    <textarea class="adminChatBox" id="adminChatBox1" readonly></textarea>
+    <form method="POST">
+      <input type="submit" name="adminClearChatOne" value="Clear Chat Room 1 Messages" id="clear1" class="linkBtn">
+    </form>
+  </div>
+  
+  <div id="adminChatBoxDiv2">
+    <textarea class="adminChatBox" id="adminChatBox2" readonly></textarea>
+    <form method="POST">
+      <input type="submit" name="adminClearChatTwo" value="Clear Chat Room 2 Messages" id="clear2" class="linkBtn">
+    </form>
+  </div>
+</div>
+
+<div id="bannedWordDiv">
+  Current Banned Words
+  <textarea id="bannedWordBox" readonly>{{textarea}}</textarea>
+  <div>
+    <form method="POST" id="updateWordForm">
+      <input type="text" name="newBannedWords">
+      <input type="submit" value="Update List" class="linkBtn">
+    </form>
+    <form method="POST" id="leaveAdminPanelBtn" action="/adminPanel">
+      <input type="submit" name="leaveAdmin" value="Logout & Exit Admin Panel" class="linkBtn">
+    </form>
+  </div>
+</div>
+
+{{#if loginSuccess}}
+  <script>
+    JSAlert.alert("<code>Welcome, {{adminName}}!</code>", null, JSAlert.Icons.Success);
+    JSAlert.alert("When updating, please make sure all words are separated by commas.", "Banned words list");
+  </script>
+{{else if adminClearChatOne}}
+  <script>
+    // a success msg will pop up to tell admin that they have successfully cleared
+    // the content of a chat room's msg
+    JSAlert.alert("<code>Clearing successful!</code>", null, JSAlert.Icons.Deleted);
+  </script>
+{{else if adminClearChatTwo}}
+  <script>
+    JSAlert.alert("<code>Clearing successful!</code>", null, JSAlert.Icons.Deleted);
+  </script>
+{{else if adminUpdateSucc}}
+  <script>
+    JSAlert.alert("<code>Update successful!</code>", null, JSAlert.Icons.Success);
+  </script>
+{{else if adminUpdateError}}
+  <script>
+    JSAlert.alert("<code>Update failed!</code>", null, JSAlert.Icons.Failed);
+  </script>
+{{else if adminUpdateEmpty}}
+  <script>
+    JSAlert.alert("<code>Input cannot be empty!</code>", null, JSAlert.Icons.Warning);
+  </script>
+{{else if adminChatDenied}}
+  <script>
+    JSAlert.alert("<code>Chat not allowed for admin!</code>", null, JSAlert.Icons.Warning);
+  </script>
+{{/if}}

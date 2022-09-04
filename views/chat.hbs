@@ -1,0 +1,36 @@
+<div id="chatDiv">
+	<h2 id="roomHeader">Welcome to Chat Room 1!</h2>
+
+	<div>
+		Select Your Chat Room: 
+		<select id="roomDropDown">
+			<option value="room1">Chat Room 1</option>
+			<option value="room2">Chat Room 2</option>
+		</select>
+	</div>
+
+	<div>
+		<textarea id="chatBox" readonly></textarea>
+	</div>
+
+	<div id="sendMsgDiv">
+		<form method="POST" action="go" id="sendMsgForm">
+			<input type="text" id="newMsg" name="newMsg">
+			<input type="submit" value="Send Message" class="linkBtn">
+		</form>
+
+		<a href="/" id="leaveChatBtn" class="linkBtn">Leave the Room</a>
+	</div>
+</div>
+
+{{#if chatMsgEmpty}}
+  <script>
+  	// sending alert to user if msg entered is empty
+  	// referenced from https://www.npmjs.com/package/js-alert
+    JSAlert.alert("<code>Message cannot be empty!</code>", null, JSAlert.Icons.Warning);
+  </script>
+{{else if chatDecline}}
+	<script>
+	  JSAlert.alert("<code>Only registered users are allowed to chat!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{/if}}

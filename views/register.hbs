@@ -1,0 +1,30 @@
+<div class="formDiv">
+	<h1>Register a New Account With Us!</h1>
+	<form method="POST" action="/register">
+		<div>Username: <input type="text" name="username" value="" class="username"></div>
+		<div>Password: <input type="password" name="password" value="" class="password"></div>
+		<div><input type="submit" value="register" class="linkBtn"></div>
+	</form>
+</div>
+
+{{#if registerFail}}
+	<script>
+		JSAlert.alert("<code>Missing credentials!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if registerError}}
+	<script>
+		JSAlert.alert("<code>Error occured during registration!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if registerExisted}}
+	<script>
+		JSAlert.alert("<code>User already exists!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if registerUnknownError}}
+	<script>
+		JSAlert.alert("<code>Error occured during registration!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if registerBadName}}
+  <script>
+    JSAlert.alert("<code>Only allow alphanumeric characters in username!</code>", null, JSAlert.Icons.Warning);
+  </script>
+{{/if}}

@@ -1,0 +1,38 @@
+<div class="formDiv">
+	<h1>User Login</h1>
+	<form method="POST" action="/login">
+		<div>Username: <input type="text" name="username" value="" class="username"></div>
+		<div>Password: <input type="password" name="password" value="" class="password"></div>
+		<div><input type="submit" value="login" class="linkBtn"></div>
+	</form>
+</div>
+
+{{#if loginMissing}}
+	<script>
+		JSAlert.alert("<code>Missing credentials!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if loginError}}
+	<script>
+		JSAlert.alert("<code>Error occured during login!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if loginUserNotFound}}
+	<script>
+		JSAlert.alert("<code>User not found!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if loginCompareError}}
+	<script>
+		JSAlert.alert("<code>Error occured during login!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if loginWrongPassword}}
+	<script>
+		JSAlert.alert("<code>Password incorrect!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if loginUnknownError}}
+	<script>
+		JSAlert.alert("<code>Error occured during login!</code>", null, JSAlert.Icons.Warning);
+	</script>
+{{else if loginSuccess}}
+	<script>
+		JSAlert.alert("<code>Login successful!</code>", null, JSAlert.Icons.Success);
+	</script>
+{{/if}}
