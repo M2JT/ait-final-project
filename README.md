@@ -12,7 +12,7 @@ The application will store Users, Admins, and Banned Words List
 
 * users can have username and password
 * admins can have admin name and admin password
-* banned words list contains a list of words where users across the chat rooms are not allowed to send to others
+* banned words list contains a list of strings where users across the chat rooms are not allowed to send to others
 
 An Example User:
 
@@ -70,7 +70,7 @@ Please click the above link to check out my schema.
 
 ![admin panel](documentation/adminPanel.png)
 
-## Site map
+## Sitemap
 
 ![site map](documentation/site_map.png)
 
@@ -88,21 +88,24 @@ Please click the above link to check out my schema.
 ## Research Topics
 
 * Perform server side form validation using custom JavaScript
-    * if non-registered user tries to send a message, an warning message will appear in the DOM
-    * if user tries to send empty message, an warning message will appear in the DOM
+    * see <code>http://192.241.144.198:10582/go</code>
+    * if non-registered user tries to send a message, a warning message will appear in the DOM
+    * if user tries to send empty message, a warning message will appear in the DOM
     * if user tries to send message containing banned words, those words will be replaced by ***
+    * see <code>http://192.241.144.198:10582/adminPanel</code>
     * if anyone other than admin tries to access admin panel, an error message will appear in the DOM
     * only letters will be accepted as valid input when updating banned words list
-    * if username contains non-alphanumeric values, an warning message will appear in the DOM
-    * if credentials are missing, an warning message will appear in the DOM
-    * if trying to register a duplicate account(e.g. same username), an warning message will appear in the DOM
+    * see <code>http://192.241.144.198:10582/register</code>
+    * if username contains non-alphanumeric values, a warning message will appear in the DOM
+    * if credentials are missing, a warning message will appear in the DOM
+    * if trying to register a duplicate account(e.g. same username), a warning message will appear in the DOM
 * Integrate user authentication
+    * see <code>http://192.241.144.198:10582/login</code> for user login page
+    * see <code>http://192.241.144.198:10582/admin</code> for admin login page
     * will be using passport for user and admin authentication
-    * if credentials are missing, an warning message will appear in the DOM
+    * if credentials are missing, a warning message will appear in the DOM
     * if username does not matched with credentials stored in DB, an error message will apear in the DOM
     * other errors occurred during login will also appear in the DOM
-
-8 points total out of 8 required points
 
 ## [Link to Final Main Project File](app.js)
 
