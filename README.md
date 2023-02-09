@@ -1,5 +1,8 @@
 # Chat Chat
 
+## Link to Chat Chat Live on the Web
+[Chat Chat](http://192.241.144.198:10582/)
+
 ## Overview
 
 Due to the negative impact brought by COVID-19, face-to-face communication becomes harder than ever before. For countries or regions that are severely affected by this contagious disease, it is no longer easy to simply head outside the door and meet with the one you want to see. Therefore, trying to find an effective way to communicate with others is key, and that is where Chat Chat comes in!
